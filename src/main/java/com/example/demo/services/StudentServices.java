@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,11 @@ public class StudentServices {
 	}
 
 	public void addNewStudent(Student student) {
-		// TODO Auto-generated method stub
+		Optional<Student> studentOptional= studentRepository.findStudentByEmail(student.getEmail());
+		if(studentOptional.isPresent()) {
+			throw new IllegalStateException("email taken");
+		}
+		studentRepository.save(student);
 		System.out.println(student);
 	}
 }
