@@ -2,7 +2,27 @@ package com.example.demo.models;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Student {
+	
+	@Id // unique identifier 
+	@SequenceGenerator( // generating the unique sequence 
+			name ="student_sequence",
+			sequenceName="student_sequence",
+			allocationSize = 1
+			)
+	@GeneratedValue( // setting the value to the sequence
+			strategy = GenerationType.SEQUENCE,
+			generator = "student_sequence"
+			)
 	private Long id;
 	private String name;
 	private String email;

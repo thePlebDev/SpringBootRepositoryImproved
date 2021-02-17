@@ -18,7 +18,7 @@ import com.example.demo.services.StudentServices;
 @RequestMapping(path = "api/v1/student")
 public class StudentController {
 	
-	private StudentServices studentServices;
+	private final StudentServices studentServices;
 	
 	@Autowired
 	StudentController(StudentServices studentServices){
