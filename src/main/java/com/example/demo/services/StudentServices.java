@@ -1,11 +1,9 @@
 package com.example.demo.services;
 
-import java.time.LocalDate;
-import java.time.Month;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.StudentRepository;
@@ -23,5 +21,10 @@ public class StudentServices {
 
 	public List<Student> getStudents(){
 		return studentRepository.findAll();
+	}
+
+	public void addNewStudent(Student student) {
+		// TODO Auto-generated method stub
+		System.out.println(student);
 	}
 }
